@@ -1,17 +1,16 @@
 package com.wordnik.swagger.models;
 
-import com.wordnik.swagger.models.Model;
 import com.wordnik.swagger.models.properties.Property;
 
 import java.util.*;
 
 public class Response {
   private String description;
-  private Property schema;
+  private Model schema;
   private Map<String, String> examples;
   private Map<String, Property> headers;
 
-  public Response schema(Property property) {
+  public Response schema(Model property) {
     this.setSchema(property);
     return this;
   }
@@ -34,10 +33,10 @@ public class Response {
     this.description = description;
   }
 
-  public Property getSchema() {
+  public Model getSchema() {
     return schema;
   }
-  public void setSchema(Property schema) {
+  public void setSchema(Model schema) {
     this.schema = schema;
   }
 
