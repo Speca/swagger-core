@@ -10,7 +10,7 @@
   <artifactId>swagger-models</artifactId>
   <packaging>bundle</packaging>
   <name>swagger-models</name>
-  <version>1.5.0-SNAPSHOT</version>
+  <version>1.5.0-speca</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <defaultGoal>install</defaultGoal>
