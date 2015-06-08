@@ -21,6 +21,10 @@ public abstract class AbstractSerializableParameter<T extends AbstractSerializab
     protected Boolean exclusiveMinimum;
     protected Double minimum;
 
+    protected Integer minLength;
+    protected Integer maxLength;
+    protected String  pattern;
+
     @JsonProperty("default")
     protected String defaultValue;
 
@@ -161,6 +165,32 @@ public abstract class AbstractSerializableParameter<T extends AbstractSerializab
         this.minimum = minimum;
     }
 
+    public Integer getMinLength() {
+        return minLength;
+    }
+
+    public void setMinLength(Integer minLength) {
+        this.minLength = minLength;
+    }
+
+    public Integer getMaxLength() {
+        return maxLength;
+    }
+
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    @Override
+    public String getPattern() {
+        return pattern;
+    }
+
+    @Override
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
     @JsonIgnore
     private T castThis() {
         @SuppressWarnings("unchecked")
@@ -186,6 +216,11 @@ public abstract class AbstractSerializableParameter<T extends AbstractSerializab
         result = prime * result + ((maximum == null) ? 0 : maximum.hashCode());
         result = prime * result + ((minimum == null) ? 0 : minimum.hashCode());
         result = prime * result + ((type == null) ? 0 : type.hashCode());
+
+        result = prime * result + ((minLength == null) ? 0 : minLength.hashCode());
+        result = prime * result + ((maxLength == null) ? 0 : maxLength.hashCode());
+        result = prime * result + ((pattern == null) ? 0 : pattern.hashCode());
+
         return result;
     }
 
@@ -271,6 +306,29 @@ public abstract class AbstractSerializableParameter<T extends AbstractSerializab
         } else if (!type.equals(other.type)) {
             return false;
         }
+        if (minLength == null) {
+            if (other.minLength != null) {
+                return false;
+            }
+        } else if (!minLength.equals(other.minLength)) {
+            return false;
+        }
+        if (maxLength == null) {
+            if (other.maxLength != null) {
+                return false;
+            }
+        } else if (!maxLength.equals(other.maxLength)) {
+            return false;
+        }
+        if (pattern == null) {
+            if (other.pattern != null) {
+                return false;
+            }
+        } else if (!pattern.equals(other.pattern)) {
+            return false;
+        }
+
+
         return true;
     }
 }

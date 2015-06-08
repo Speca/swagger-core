@@ -24,6 +24,7 @@ public class Swagger {
     protected Map<String, SecuritySchemeDefinition> securityDefinitions;
     protected Map<String, Model> definitions;
     protected Map<String, Parameter> parameters;
+    protected Map<String, Response> responses;
     protected ExternalDocs externalDocs;
 
     // builders
@@ -318,6 +319,29 @@ public class Swagger {
         }
         this.parameters.put(key, parameter);
     }
+
+    public Map<String, Response> getResponses() {
+        return responses;
+    }
+
+    public void setResponses(Map<String, Response> responses) {
+        this.responses = responses;
+    }
+
+    public Response getResponse(String name) {
+        if (this.responses == null) {
+            return null;
+        }
+        return this.responses.get(name);
+    }
+
+    public void addResponse(String key, Response response) {
+        if (this.responses == null) {
+            this.responses = new HashMap<String, Response>();
+        }
+        this.responses.put(key, response);
+    }
+
 
     public ExternalDocs getExternalDocs() {
         return externalDocs;
