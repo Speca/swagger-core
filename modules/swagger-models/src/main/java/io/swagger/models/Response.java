@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class Response {
     private String description;
-    private Property schema;
+    private Model schema;
     private Map<String, Object> examples;
     private Map<String, Property> headers;
 
-    public Response schema(Property property) {
-        this.setSchema(property);
+    public Response schema(Model model) {
+        this.setSchema(model);
         return this;
     }
 
@@ -48,11 +48,11 @@ public class Response {
         this.description = description;
     }
 
-    public Property getSchema() {
+    public Model getSchema() {
         return schema;
     }
 
-    public void setSchema(Property schema) {
+    public void setSchema(Model schema) {
         this.schema = schema;
     }
 
