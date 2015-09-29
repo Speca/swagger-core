@@ -29,6 +29,12 @@ public class ModelImpl extends AbstractModel {
     private Xml xml;
     @JsonProperty("default")
     private String defaultValue;
+    protected List<String> _enum;
+    protected Integer minLength = null, maxLength = null;
+    protected String pattern = null;
+    protected Double minimum, maximum;
+
+
 
     public ModelImpl discriminator(String discriminator) {
         this.setDiscriminator(discriminator);
@@ -223,6 +229,54 @@ public class ModelImpl extends AbstractModel {
 
     public void setXml(Xml xml) {
         this.xml = xml;
+    }
+
+    public List<String> getEnum() {
+        return _enum;
+    }
+
+    public void setEnum(List<String> _enum) {
+        this._enum = _enum;
+    }
+
+    public Integer getMinLength() {
+        return minLength;
+    }
+
+    public void setMinLength(Integer minLength) {
+        this.minLength = minLength;
+    }
+
+    public Integer getMaxLength() {
+        return maxLength;
+    }
+
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    public Double getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(Double minimum) {
+        this.minimum = minimum;
+    }
+
+    public Double getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(Double maximum) {
+        this.maximum = maximum;
     }
 
     public String getDefaultValue() {
